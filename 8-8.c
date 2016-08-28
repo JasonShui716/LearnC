@@ -9,7 +9,7 @@ int main()
     while(1)
     {
         printf("Enter the operation of your choice:\n");
-        printf("a. add                    s.subtract\n");
+        printf("a.add                s.subtract\n");
         printf("m.multiply           d.divide\n");
         printf("q.quit\n");
         choic=choice();
@@ -34,13 +34,15 @@ int main()
             case 'd':
             while(1)
             {
-                if(second==0)
+                if(second==0){
                     printf("Enter a number other than 0");
                     second=correct();
+                    }
                 else
                     break;
             }
             printf("%f / %f = %f",first,second,first / second);
+            break;
         }
     }
     }
