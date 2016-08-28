@@ -23,13 +23,13 @@ int main()
         switch(choic)
         {
             case 'a':
-            printf("%f + %f =%f",first,second,first+second);
+            printf("%f + %f =%f\n",first,second,first+second);
             break;
             case 's':
-            printf("%f - %f =%f",first,second,first-second);
+            printf("%f - %f =%f\n",first,second,first-second);
             break;
             case 'm':
-            printf("%f * %f = %f",first,second,first*second);
+            printf("%f * %f = %f\n",first,second,first*second);
             break;
             case 'd':
             while(1)
@@ -41,7 +41,7 @@ int main()
                 else
                     break;
             }
-            printf("%f / %f = %f",first,second,first / second);
+            printf("%f / %f = %f\n",first,second,first / second);
             break;
         }
     }
