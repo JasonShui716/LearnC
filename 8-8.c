@@ -55,7 +55,7 @@ int main()
         if(ch=='a'||ch=='s'||ch=='m'||ch=='d'||ch=='q')
             break;
         else
-            printf("Please choose a letter from a ,s, m, d, q.");
+            printf("Please choose a letter from a ,s, m, d, q:");
         }
         return ch;
 }
@@ -63,7 +63,8 @@ int main()
     {
         char cha;
         cha=getchar();
-        while(getchar()!='\n');
+        while(getchar()!='\n')
+            continue;
         return cha;
     }
     double correct(void)
