@@ -70,7 +70,7 @@ int main()
     {
         double dou;
         char input;
-        while((scanf("%f",&dou))!=1)
+        while((scanf("%lf",&dou))!=1)
             {
                 while((input=getchar())!='\n')
                     putchar(input);
