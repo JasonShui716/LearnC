@@ -56,8 +56,8 @@ int main()
             break;
         else
             printf("Please choose a letter from a ,s, m, d, q.");
+        }
         return ch;
-    }
 }
     char getfirst(void)
     {
