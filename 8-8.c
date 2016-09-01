@@ -61,9 +61,10 @@ int main()
 }
     char getfirst(void)
     {
-        char cha;
-        cha=getchar();
-        while(getchar()!='\n')
+         char cha;
+        while(isspace(cha=getchar()))
+            continue;
+        while((getchar())!='\n')
             continue;
         return cha;
     }
