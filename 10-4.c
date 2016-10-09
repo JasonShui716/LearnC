@@ -15,7 +15,7 @@ int main()
 
 void maxi(int i,double a[])
 {
-	int n,m;
+	int n,m=0;
 	double ma;
 	for(n=1,ma=*a;n<i;n++){
 		a++;
@@ -25,5 +25,5 @@ void maxi(int i,double a[])
 			}
 		else;
 		}
-		printf("the maximum of the array is[%d]%f",m,ma);
+		printf("the maximum of the array is [%d]%.2lf",m,ma);
 }
