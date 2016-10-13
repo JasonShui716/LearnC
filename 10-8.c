@@ -15,10 +15,8 @@ void cnp(int n,int m,double arr1[n][m],double arr2[n][m])
   {
       for(ir=0;ir<m;ir++)
       {
-      	**arr2=**arr1;
+        *(*(arr2+ic)+ir)=*(*(arr1+ic)+ir);
         printf("[%d][%d]%.1lf ",ic,ir,arr2[ic][ir]);
-        arr1 = *(arr1+ic)+1;
-        arr2 = *(arr2+ic)+1;
       }
       printf("\n");
   }
