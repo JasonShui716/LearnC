@@ -6,8 +6,8 @@
 char menu(void);
 void ori(char *input[],int i);
 void asc(char *input[],int i);
-void a_len(char *input[],int i);
-void f_len(char *input[],int i);
+void s_len(char *input[],int i);/*string*/
+void f_len(char *input[],int i);/*first*/
 void deal(char *ch,int i);
 int main()
 {
@@ -39,7 +39,7 @@ void deal(char *ch,int i)
         asc(input,i);
         break;
         case 'c';
-        a_len(input,i);
+        s_len(input,i);
         break;
         case 'd':
         f_len(input,i);
@@ -80,6 +80,25 @@ void ori(char *input[],int i)
 
 void asc(char *input[],int i)
 {
+    /*xuan ze pai xu suan fa(selection sort)*/
     int n,seq;
     char *temp;
-    
+    for(n=0;n<i-1;n++)
+    {
+        for(seq=n+1;seq<i;seq++)
+        {
+            if(strcmp(input[n],input[seq])>0)
+            {
+                temp=input[n];
+                input[n]=input[seq];
+                input[seq]=temp;
+            }
+         }
+    }
+}
+
+void s_len(char *input[],int i)
+{
+    int length[i];
+    int n,seq;
+     
