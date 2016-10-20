@@ -122,4 +122,28 @@ void s_len(char *input[],int i)
 
 void f_len(char *input[],int i)
 {
-                  
+    int length[i];
+    int n,ch,seq;
+    char *temp;
+    for(n=0;n<i;n++)
+    {
+        for(ch=0;ch<strlen(input[i]);ch++)
+        {
+            if(isspace(input[i][ch]))
+                break;
+        }
+    }
+    for(n=0;n<i-1;n++)
+    {
+        for(seq=n+1;seq<i;seq++)
+        {
+            if(length[n]>length[seq])
+            {
+                temp=input[n];
+                input[n]=input[seq];
+                input[seq]=temp;
+            }
+        }
+    }
+}
+       
