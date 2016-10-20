@@ -8,7 +8,7 @@ void ori(char *input[],int i);
 void asc(char *input[],int i);
 void s_len(char *input[],int i);/*string*/
 void f_len(char *input[],int i);/*first*/
-void deal(char *ch,int i);
+void deal(char *input[],char *ch,int i);
 int main()
 {
     int i;
@@ -22,11 +22,11 @@ int main()
     }
     do
     {
-        deal(choice,i);
+        deal(input,choice,i);
     }while((*choice)!='q');
     return 0; 
 }    
-void deal(char *ch,int i)
+void deal(char *input[],char *ch,int i)
 {
     char choice;
     choice=menu();
