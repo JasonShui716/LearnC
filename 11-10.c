@@ -38,7 +38,7 @@ void deal(char *input[],char *ch,int i)
         case 'b':
         asc(input,i);
         break;
-        case 'c';
+        case 'c':
         s_len(input,i);
         break;
         case 'd':
