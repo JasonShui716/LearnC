@@ -11,32 +11,34 @@ void f_len(char *input[],int i);/*first*/
 char deal(char *input[],int i);
 int main()
 {
-    int i;
+    int i,n;
     char *re;
     char choice;
     char input[NUMBER][SIZE];
-
     printf("Please input strings you want.Less than 10 strings.\n");
     for(i=0;i<NUMBER||re==NULL;i++)
     {
         re=gets(input[i]);
-   
+    }
+    char *ptt[i];
+    for(n=0;n<i;n++)
+    {
+    	ptt[n]=input[n];
+    
     }
     do
     {
-        choice=deal(input,i);
+        choice=deal(ptt,i);
     }while(choice!='q');
     return 0; 
 }    
 char deal(char *input[],int i)
 {
     char choice;
-    puts(input[i]);
     choice=menu();
     switch(choice)
     {
         case 'a':
-        puts(input[1]);
         ori(input,i);
         break;
         case 'b':
@@ -60,7 +62,7 @@ char menu(void)
     printf("Please choose a mode as your output.\n");
     printf("a.The original strings.\nb.The strings sort by ASCII.\n");
     printf("c.The strings sort by length.\n");
-    printf("d.The strings sort by the length of the first word.\nq.quit.");
+    printf("d.The strings sort by the length of the first word.\nq.quit.\n");
     while(1)
     {
         ch=getchar();
@@ -99,6 +101,10 @@ void asc(char *input[],int i)
             }
          }
     }
+	for(n=0;n<i;n++)
+	{
+		puts(input[n]);
+	}
 }
 
 void s_len(char *input[],int i)
@@ -121,6 +127,10 @@ void s_len(char *input[],int i)
                 input[seq]=temp;
             }
         }
+    }
+    for(n=0;n<i;n++)
+    {
+    	puts(input[n]);
     }
 }
 
