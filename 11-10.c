@@ -8,25 +8,25 @@ void ori(char *input[],int i);
 void asc(char *input[],int i);
 void s_len(char *input[],int i);/*string*/
 void f_len(char *input[],int i);/*first*/
-void deal(char *input[],char *ch,int i);
+char deal(char *input[],int i);
 int main()
 {
     int i;
     char *re;
-    char *choice;
+    char choice;
     char input[NUMBER][SIZE];
-    printf("Please input strings you want.Less than 10 strings.");
+    printf("Please input strings you want.Less than 10 strings.\n");
     for(i=0;i<NUMBER||re==NULL;i++)
     {
         re=gets(input[i]);
     }
     do
     {
-        deal(input,choice,i);
+        deal(input,i);
     }while((*choice)!='q');
     return 0; 
 }    
-void deal(char *input[],char *ch,int i)
+char deal(char *input[],int i)
 {
     char choice;
     choice=menu();
@@ -47,7 +47,7 @@ void deal(char *input[],char *ch,int i)
         case 'q':
         break;
     }
-    ch=&choice;
+    return choice;
 }
         
 char menu(void)
