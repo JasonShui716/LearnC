@@ -23,6 +23,8 @@ int main()
     do
     {
         choice=deal(input,i);
+=======
+        deal(input,i);
     }while(choice!='q');
     return 0; 
 }    
