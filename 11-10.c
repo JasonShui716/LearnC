@@ -22,8 +22,8 @@ int main()
     }
     do
     {
-        deal(input,i);
-    }while((*choice)!='q');
+        choice=deal(input,i);
+    }while(choice!='q');
     return 0; 
 }    
 char deal(char *input[],int i)
@@ -33,6 +33,7 @@ char deal(char *input[],int i)
     switch(choice)
     {
         case 'a':
+        puts(input[1]);
         ori(input,i);
         break;
         case 'b':
