@@ -23,7 +23,7 @@ int main()
     do
     {
         deal(input,i);
-    }while((*choice)!='q');
+    }while(choice!='q');
     return 0; 
 }    
 char deal(char *input[],int i)
