@@ -15,16 +15,16 @@ int main()
     char *re;
     char choice;
     char input[NUMBER][SIZE];
+
     printf("Please input strings you want.Less than 10 strings.\n");
     for(i=0;i<NUMBER||re==NULL;i++)
     {
         re=gets(input[i]);
-        ptt[i]=input[i];
+   
     }
     do
     {
-        choice=deal(ptt,i);
-        deal(input,i);
+        choice=deal(input,i);
     }while(choice!='q');
     return 0; 
 }    
@@ -57,7 +57,7 @@ char deal(char *input[],int i)
 char menu(void)
 {
     char ch;
-    printf("Please choose a mode as your output.");
+    printf("Please choose a mode as your output.\n");
     printf("a.The original strings.\nb.The strings sort by ASCII.\n");
     printf("c.The strings sort by length.\n");
     printf("d.The strings sort by the length of the first word.\nq.quit.");
