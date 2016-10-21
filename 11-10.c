@@ -19,10 +19,11 @@ int main()
     for(i=0;i<NUMBER||re==NULL;i++)
     {
         re=gets(input[i]);
+        ptt[i]=input[i];
     }
     do
     {
-        choice=deal(input,i);
+        choice=deal(ptt,i);
         deal(input,i);
     }while(choice!='q');
     return 0; 
@@ -30,6 +31,7 @@ int main()
 char deal(char *input[],int i)
 {
     char choice;
+    puts(input[i]);
     choice=menu();
     switch(choice)
     {
