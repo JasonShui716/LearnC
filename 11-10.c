@@ -9,6 +9,7 @@ void asc(char *input[],int i);
 void s_len(char *input[],int i);/*string*/
 void f_len(char *input[],int i);/*first*/
 char deal(char *input[],int i);
+void sort_n_print(char *ptt[],int length[],int i);
 int main()
 {
     int i,n;
@@ -23,8 +24,7 @@ int main()
     char *ptt[i];
     for(n=0;n<i;n++)
     {
-    	ptt[n]=input[n];
-    
+    	    ptt[n]=input[n];
     }
     do
     {
@@ -108,59 +108,31 @@ void asc(char *input[],int i)
     }
 	for(n=0;n<i;n++)
 	{
-		puts(ptt[n]);
+	    puts(ptt[n]);
 	}
 }
 
 void s_len(char *input[],int i)
 {
     int length[i];
-    int n,seq;
-    char *temp;
-    int tmp;
+    int n;
     char *ptt[i];
     for(n=0;n<i;n++)
     {
         ptt[n]=input[n];
-    }
-    for(n=0;n<i;n++)
-    {
         length[n]=strlen(ptt[n]);
     }
-    for(n=0;n<i-1;n++)
-    {
-        for(seq=n+1;seq<i;seq++)
-        {
-            if(length[n]>length[seq])
-            {
-                temp=ptt[n];
-                tmp=length[n];
-                ptt[n]=ptt[seq];
-                length[n]=length[seq];
-                ptt[seq]=temp;
-                length[seq]=tmp;
-            }
-        }
-    }
-    for(n=0;n<i;n++)
-    {
-    	puts(ptt[n]);
-    }
+    sort_n_print(ptt,length,i);
 }
 
 void f_len(char *input[],int i)
 {
     int length[i];
-    int n,ch,seq;
-    char *temp;
-    int tmp;
+    int n,ch;
     char *ptt[i];
     for(n=0;n<i;n++)
     {
         ptt[n]=input[n];
-    }
-    for(n=0;n<i;n++)
-    {
         for(ch=0;ch<strlen(input[n]);ch++)
         {
             if(isspace(input[n][ch]))
@@ -168,6 +140,14 @@ void f_len(char *input[],int i)
         }
         length[n]=ch;
     }
+    sort_n_print(ptt,length,i);
+}       
+
+void sort_n_print(char *ptt[],int length[],int i)
+{
+    int n,seq;
+    char *temp;
+    int tmp;
     for(n=0;n<i-1;n++)
     {
         for(seq=n+1;seq<i;seq++)
@@ -187,4 +167,4 @@ void f_len(char *input[],int i)
     {
     	puts(ptt[n]);
     }
-}       
+}
