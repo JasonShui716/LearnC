@@ -24,7 +24,7 @@ int main()
     char *ptt[i];
     for(n=0;n<i;n++)
     {
-    	    ptt[n]=input[n];
+    	   ptt[n]=input[n];
     }
     do
     {
