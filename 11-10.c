@@ -2,7 +2,7 @@
 #include<string.h>
 #include<ctype.h>
 #define SIZE 100
-#define NUMBER 10
+#define NUMBER 5
 char menu(void);
 void ori(char *input[],int i);
 void asc(char *input[],int i);
@@ -15,7 +15,7 @@ int main()
     char *re;
     char choice;
     char input[NUMBER][SIZE];
-    printf("Please input strings you want.Less than 10 strings.\n");
+    printf("Please input strings you want.Less than %d strings.\n",NUMBER);
     for(i=0;i<NUMBER||re==NULL;i++)
     {
         re=gets(input[i]);
@@ -65,8 +65,8 @@ char menu(void)
     printf("d.The strings sort by the length of the first word.\nq.quit.\n");
     while(1)
     {
-        ch=getchar();
-        ch=tolower(ch);
+        scanf("%c",&ch);
+        getchar();
         if(ch=='a'||ch=='b'||ch=='c'||ch=='d'||ch=='q')
             break;
         else
@@ -89,21 +89,26 @@ void asc(char *input[],int i)
     /*xuan ze pai xu suan fa(selection sort)*/
     int n,seq;
     char *temp;
+    char *ptt[i];
+    for(n=0;n<i;n++)
+    {
+        ptt[n]=input[n];
+    }
     for(n=0;n<i-1;n++)
     {
         for(seq=n+1;seq<i;seq++)
         {
-            if(strcmp(input[n],input[seq])>0)
+            if(strcmp(ptt[n],ptt[seq])>0)
             {
-                temp=input[n];
-                input[n]=input[seq];
-                input[seq]=temp;
+                temp=ptt[n];
+                ptt[n]=ptt[seq];
+                ptt[seq]=temp;
             }
          }
     }
 	for(n=0;n<i;n++)
 	{
-		puts(input[n]);
+		puts(ptt[n]);
 	}
 }
 
@@ -112,9 +117,15 @@ void s_len(char *input[],int i)
     int length[i];
     int n,seq;
     char *temp;
+    int tmp;
+    char *ptt[i];
     for(n=0;n<i;n++)
     {
-        length[n]=strlen(input[n]);
+        ptt[n]=input[n];
+    }
+    for(n=0;n<i;n++)
+    {
+        length[n]=strlen(ptt[n]);
     }
     for(n=0;n<i-1;n++)
     {
@@ -122,15 +133,18 @@ void s_len(char *input[],int i)
         {
             if(length[n]>length[seq])
             {
-                temp=input[n];
-                input[n]=input[seq];
-                input[seq]=temp;
+                temp=ptt[n];
+                tmp=length[n];
+                ptt[n]=ptt[seq];
+                length[n]=length[seq];
+                ptt[seq]=temp;
+                length[seq]=tmp;
             }
         }
     }
     for(n=0;n<i;n++)
     {
-    	puts(input[n]);
+    	puts(ptt[n]);
     }
 }
 
@@ -139,13 +153,20 @@ void f_len(char *input[],int i)
     int length[i];
     int n,ch,seq;
     char *temp;
+    int tmp;
+    char *ptt[i];
     for(n=0;n<i;n++)
     {
-        for(ch=0;ch<strlen(input[i]);ch++)
+        ptt[n]=input[n];
+    }
+    for(n=0;n<i;n++)
+    {
+        for(ch=0;ch<strlen(input[n]);ch++)
         {
-            if(isspace(input[i][ch]))
-                break;
+            if(isspace(input[n][ch]))
+                break;  
         }
+        length[n]=ch;
     }
     for(n=0;n<i-1;n++)
     {
@@ -153,11 +174,17 @@ void f_len(char *input[],int i)
         {
             if(length[n]>length[seq])
             {
-                temp=input[n];
-                input[n]=input[seq];
-                input[seq]=temp;
+                temp=ptt[n];
+                tmp=length[n];
+                ptt[n]=ptt[seq];
+                length[n]=length[seq];
+                ptt[seq]=temp;
+                length[seq]=tmp;
             }
         }
     }
-}
-       
+    for(n=0;n<i;n++)
+    {
+    	puts(ptt[n]);
+    }
+}       
