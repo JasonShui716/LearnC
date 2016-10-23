@@ -5,29 +5,20 @@
 int main()
 {
     char read[SIZE];
-    char copy[SIZE];
-    int m,n,i;
-    int blank[SIZE];
     gets(read);
-    for(blank[0]=0,i=1,n=0;n<strlen(read);n++)
+    int i,m1,m2;
+    int n=m2=strlen(read);
+    for(i=n-1;i>=0;i--)
     {
-        if(isblank(read[n]))
-        {
-            blank[i]=n;
-            i++;
-        }
-    }
-    blank[i]=strlen(read);
-    for(m=0,n=blank[i-1];n<blank[i];m++,n++)
-    {
-        if(n>=blank[i-1]||n<blank[i])
-        {
-            copy[m]=read[blank[i-1]];
-            putchar(copy[m]);
+        if(isspace(read[i])||i==0)
+            m2=i;
+        else
             continue;
+        
+        for(m1=i;m1<m2;m1++)
+        {
+            putchar(read[m1]);
         }
-        i--;
-        n=blank[i-1];
     }
-    putchar('e');
 }
+// ???????????still wrong
