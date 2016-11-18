@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define MAX 20
+#define MAX 5
 int rand1(int k);
 int main()
 {
@@ -9,7 +9,7 @@ int main()
     float total[5]={0};
     int k;
     int m,n,t;
-    for(t=0;t<10000;t++)
+    for(t=0;t<2000000;t++)
     {
       for(m=0;m<25;m++)
       {
@@ -19,18 +19,13 @@ int main()
       }
       for(n=0;n<25;n++)
       {
-        total[n/5] =+ target[n];
-
-      }
-	printf("%.1f,",target[m]);
-	printf("\n");
-      	getchar();
+        total[n/5] += target[n];
+       }
 	if(abs(total[0]-total[1])<MAX&&abs(total[1]-total[2])<MAX&&abs(total[2]-total[3])<MAX&&abs(total[3]-total[4])<MAX&&abs(total[4]-total[0])<MAX)
       {
         for(m=0;m<25;m++)
 	{
           printf("%.1f,\n",target[m]);
-	  printf("%.1f\n",total[n/5]);
 	}
 	printf("\n");
       }
