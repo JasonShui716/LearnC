@@ -39,7 +39,7 @@ int main()
        if((fp[fnum]=fopen(files[fnum],"r"))==NULL)
        {
            fprintf(stderr,"Can\'t open the file %s.\n",files[fnum]);
-           exit(0);
+           continue;
        }
        fseek(fp[fnum],0L,SEEK_END);
        last=ftell(fp[fnum]);
