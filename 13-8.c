@@ -28,6 +28,7 @@ int main()
     printf("Please enter the files you want to search in.Enter an empty line to stop.\n");
     printf("Most 10 files.\n");
     n=fileget();
+    n--;
     FILE *(fp[n]);
     for(fnum=0;fnum<n;fnum++)
     {
