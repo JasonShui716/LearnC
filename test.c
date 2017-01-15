@@ -1,17 +1,11 @@
 #include<stdio.h>
-
-int main(void)
+#include<string.h>
+int main()
 {
- int a=0,b=0;
- char ch;
- printf("Please input a string end by #:");
- while((ch = getchar()) != '#')
- {
-  if(ch == '.') {putchar('!'); a++;}
-  else if(ch == '!') {putchar('!');putchar('!'); b++;}
-  else putchar(ch);
- }
- printf("\nthe times of '.' replaced by '!':  %d\n",a);
- printf("the times of '!' replaced by '!!': %d\n",b);
- return(0);
+    char *s;
+    s=strstr("asfdaf","asfdaf");
+    if(s==NULL)
+        puts("ss");
+    else
+        puts("hh");
 }
