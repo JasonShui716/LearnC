@@ -1,2 +1,2 @@
 # LearnC
-Begin with easy C programs.
+ 从14-2（17-01-15）开始，正式使用VS2015作为IDE。完整项目工程文件（如果这也算【项目】的话？）在文件夹中的*.zip 中。
