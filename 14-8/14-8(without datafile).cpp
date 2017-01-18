@@ -5,22 +5,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
-#include "14-8.h"
+#include "14-8(without datafile).h"
 
 int main()
 {
 	char choice;
 	struct plane seat[SEATS];
-	FILE *data;
-	if (fopen_s(&data, "SeatsData.dat", "r")==0)
-	{
-		load_file(data, seat);
-		fclose(data);
-	}
-	else
-		for (int n = 0; n < SEATS; n++)
-			seat[n].number = n + 1;
+	for (int n = 0; n < SEATS; n++)
+		seat[n].number = n + 1;
 	do {
 		do {
 			choice = menu();
@@ -50,16 +42,9 @@ int main()
 			case 'f':
 				break;
 		}
-		numsort(seat);
+		
 	} while (strchr("abcde", choice));
-	fopen_s(&data, "SeatsData.dat", "w");
-	for (int n = 0; n < SEATS; n++)
-	{
-		if (!seat[n].sold)
-			clean_name(&seat[n]);
-		fprintf(data, "%2d %s %s %s\n", n + 1, (seat[n].sold) ? "Sold " : "Empty", seat[n].fname, seat[n].lname);
-	}
-	fclose(data);
 	getchar();
 	return 0;
 }
+
