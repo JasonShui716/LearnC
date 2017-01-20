@@ -27,10 +27,7 @@ void load_file(FILE *data, struct plane *seat)
 	static int load_time = 0;
 	char dataline[DATAMAX];
 	fgets(dataline, DATAMAX, data);
-	puts(dataline);
-	for (int n = 0; fgets(dataline, DATAMAX, data) && n<SEATS; n++)
-	{
-		seat[n].number = n + 1;
+	for (int n = 0; n<SEATS && fgets(dataline, DATAMAX, data) ; n++)
 		if (dataline[SOLDPOS] == 'S')
 		{
 			int pos = NAMEPOS;
@@ -51,9 +48,6 @@ void load_file(FILE *data, struct plane *seat)
 			seat[n].lname = (char *)malloc(length);
 			strcpy_s(seat[n].lname, length, temp);
 		}
-		else
-			continue;
-	}
 }
 
 int choose_flight(void)
@@ -66,15 +60,16 @@ int choose_flight(void)
 		printf("5)quit      ");
 		scanf_s("%d", &flight);
 		getchar();
+		printf("\n");
 		if (flight>5 && flight<0)
 		{
 			printf("Input error. Please try again.\n");
 			continue;
 		}
-	} while (flight > 5 && flight < 0);
+	} while (flight > 5 && flight < 1);
 	if (flight == 5)
 		printf("Bye!");
-	return flight;
+	return (flight-1);
 }
 
 void deln(char *str)
@@ -217,7 +212,7 @@ void check_status(int f,struct plane *seat)
 	printf("\nEnter the seat number you want to check.");
 	scanf_s("%d", &n);
 	getchar();
-	printf("%s :#%d %s %s %s\n\n", flight_list[f], n, (seat[n].sold) ? "Sold " : "Empty", seat[n].fname, seat[n].lname);
+	printf("%s :#%d %s %s %s\n\n", flight_list[f], n, (seat[n-1].sold) ? "Sold " : "Empty", seat[n-1].fname, seat[n-1].lname);
 }
 
 void numsort(struct plane *seat)
