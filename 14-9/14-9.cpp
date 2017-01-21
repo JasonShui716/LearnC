@@ -15,6 +15,7 @@ int main()
 	char choice;
 	struct plane seat[FLIGHTNUM][SEATS];
 	FILE *data;
+	Process mode[5] = { show_empty_number,show_empty_list,show_alphabetical_list,add_assign,del_assign };
 	if (fopen_s(&data, "SeatsData.dat", "r") == 0)
 	{
 		for (int f = 0; f < FLIGHTNUM; f++)
@@ -41,27 +42,14 @@ int main()
 					continue;
 				}
 			} while (!strchr("abcdefq", choice));
+			if(strchr("abcd",choice))
+				(mode[choice - 'a'])(seat[flight]);
 			switch (choice)
 			{
-			case 'a':
-				show_empty_number(seat[flight]);
-				break;
-			case 'b':
-				show_empty_list(seat[flight]);
-				break;
-			case 'c':
-				show_alphabetical_list(seat[flight]);
-				break;
-			case 'd':
-				add_assign(seat[flight]);
-				break;
-			case 'e':
-				del_assign(seat[flight]);
-				break;
-			case 'f':
+				case 'f':
 				check_status(flight, seat[flight]);
 				break;
-			case 'q':
+				case 'q':
 				printf("\n");
 				flight = choose_flight();
 				break;

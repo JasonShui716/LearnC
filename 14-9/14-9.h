@@ -12,6 +12,7 @@ struct plane
 	char *fname;
 };
 
+typedef void(*Process)(struct plane *);
 char *flight_list[4] = { "Flight 102","Flight 311","Flight 444","Flight 519" };
 
 void clean_name(struct plane *seat)
