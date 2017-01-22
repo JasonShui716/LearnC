@@ -54,7 +54,8 @@ int main()
 				flight = choose_flight();
 				break;
 			}
-			numsort(seat[flight]);
+			if (flight != 4)//之前没有这一行
+				numsort(seat[flight]);
 		} while (flight != 4);
 	fopen_s(&data, "SeatsData.dat", "w");
 	for (int f = 0; f < FLIGHTNUM; f++)
