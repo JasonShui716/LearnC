@@ -1,4 +1,6 @@
 # LearnC
-文件都在new branch下
-加油加油！就要基础入门了！！下一步就是刷二级c题，同时学算法数据结构
-170115
+
+##Branches:
+###new  Exercises of "C Primer Plus"
+###LeetCode Exercises of leetcode
+###Algorithms The book "Algorithms in C"
