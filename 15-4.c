@@ -1,6 +1,11 @@
 #include<stdio.h>
 #define MASK 0x01
-bool isopen(int i,int pos);//c99
+bool isopen(int i,int pos)
+{
+    for(;pos>0;pos--,i>>=1);
+    return (i&MASK);
+}//c99
+
 int main()
 {
     int input,pos;
@@ -13,10 +18,4 @@ int main()
     else
         printf("The bit is close.");
     return 0;
-}
-
-bool isopen(int i,int pos)
-{
-    for(;pos>0;pos--,i>>=1);
-    return (i&MASK);
 }
