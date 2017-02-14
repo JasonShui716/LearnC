@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -71,6 +72,7 @@ bool Pop(Item *item, Stack *pStack)
         return false;
     GetTop(item, pStack);
     pStack->top = pStack->top->next;
+    --pStack->size;
     free(pt);
     return true; 
 }

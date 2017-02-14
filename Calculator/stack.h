@@ -1,5 +1,9 @@
 #pragma once
-typedef char Item;
+typedef union {
+    int n;
+    char ch;
+}Item;
+
 typedef struct node {
     Item item;
     struct node *next;
