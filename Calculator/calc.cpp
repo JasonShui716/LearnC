@@ -12,9 +12,11 @@ bool IsSymbol(char ch)
     return false;
 }
 
-bool IsDigit(char ch)
+bool IsDigit(char *ch, int n)
 {
-    if (isdigit(ch) || ch == '.')
+    if (isdigit(ch[n]) || ch[n] == '.')
+        return true;
+    if ((ch[n] == '-' && (n == 0 || (ch[n - 1] == '(') && isdigit(ch[n + 1]))))
         return true;
     return false;
 }
@@ -94,4 +96,3 @@ void Analyze(Item sym, Stack *number, Stack *symbol)
     Calculate(number, symbol);
     Analyze(sym, number, symbol);
 }
-

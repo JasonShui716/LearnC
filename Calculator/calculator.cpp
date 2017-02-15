@@ -13,6 +13,9 @@ char next;
 
 int main()
 {
+    printf("本计算器可进行整数，小数，负数的四则运算\n\
+合法符号：+-*/.() 请务必将输入法切换至英文。\n");
+    printf("请输入表达式进行计算：");
     Stack number, symbol;
     char formula[SMAX];
     char snum[NMAX];
@@ -28,14 +31,14 @@ int main()
     for (int n = 0; formula[n] != '\n'&&formula[n] != '='; n++)
     {
         next = formula[n + 1];
-        if (IsDigit(formula[n])) 
+        if (IsDigit(formula, n))
         {
             int m = 0;
             do {
                 snum[m] = formula[n];
                 m++;
                 n++;
-            } while (IsDigit(formula[n]));
+            } while (IsDigit(formula, n));
             snum[m] = '\0';
             n--;
             next = formula[n + 1];
@@ -57,4 +60,3 @@ int main()
     system("pause");
     return 0;
 }
-
