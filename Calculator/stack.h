@@ -1,6 +1,6 @@
 #pragma once
 typedef union {
-    int n;
+    double n;
     char ch;
 }Item;
 

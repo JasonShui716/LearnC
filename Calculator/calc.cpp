@@ -1,11 +1,20 @@
 #include "stdafx.h"
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
+#include <string.h>
 #include "calc.h"
 extern char next;
-bool issymbol(char ch)
+bool IsSymbol(char ch)
 {
     if (strchr("+-*/()", ch))
+        return true;
+    return false;
+}
+
+bool IsDigit(char ch)
+{
+    if (isdigit(ch) || ch == '.')
         return true;
     return false;
 }
@@ -22,14 +31,9 @@ int Level(char sym)
         return 0;
 }
 
-int ToDigit(char num)
-{
-    return (num - 48);
-}
-
 bool GetNext(char next)
 {
-    if (issymbol(next))
+    if (IsSymbol(next))
         return true;
     return false;
 }
@@ -37,8 +41,8 @@ bool GetNext(char next)
 void Calculate(Stack *number, Stack *symbol)
 {
     Item num1, num2, sym, answer;
-    int n1, n2;
-    extern int ans;
+    double n1, n2;
+    extern double ans;
     Pop(&num2, number);
     Pop(&num1, number);
     Pop(&sym, symbol);
@@ -90,3 +94,4 @@ void Analyze(Item sym, Stack *number, Stack *symbol)
     Calculate(number, symbol);
     Analyze(sym, number, symbol);
 }
+
