@@ -1,6 +1,7 @@
 # LearnC
+#Most in New Branch.
 
-##Branches:
-###new          ----- Exercises of "C Primer Plus"
-###LeetCode      -----Exercises of www.leetcode.com
-###Algorithms    -----The book "Algorithms in C"
+## Branches:
+### new          ----- Exercises of "C Primer Plus"
+### LeetCode      -----Exercises of www.leetcode.com
+### Algorithms    -----The book "Algorithms in C"
